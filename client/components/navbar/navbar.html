@@ -1,20 +1,52 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
-  <div class="container">
+<div class="navbar navbar-default navbar-static-top">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">arsia</a>
+      <a class="navbar-brand" href="#">Arsia</a>
     </div>
-    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-            <a ng-href="{{item.link}}">{{item.title}}</a>
+        <li ng-show="loggedIn===true"><a href="#">Hi {{user.email}}</a></li>
+      </ul>
+      <form ng-show="loggedIn===false" class="navbar-form navbar-left" role="search" ng-submit="login()">
+        <div class="form-group">
+          <!--<input type="text" ng-model="user.name" class="form-control" placeholder="username">-->
+          <input type="text" ng-model="user.email" class="form-control" placeholder="email">
+          <input type="password" ng-model="user.password" class="form-control" placeholder="password">
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>
+        <button ngtype="submit" class="btn btn-success" ng-click="signUp()">Sign up</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#" ng-click='logout()'>Logout</a></li>
+          </ul>
         </li>
       </ul>
-    </div>
+    </div><!-- /.navbar-collapse -->
+
+    <!--<div class="navbar-header">-->
+      <!--<button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">-->
+        <!--<span class="sr-only">Toggle navigation</span>-->
+        <!--<span class="icon-bar"></span>-->
+        <!--<span class="icon-bar"></span>-->
+        <!--<span class="icon-bar"></span>-->
+      <!--</button>-->
+      <!--<a href="/" class="navbar-brand">arsia</a>-->
+    <!--</div>-->
+    <!--<div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">-->
+      <!--<ul class="nav navbar-nav">-->
+        <!--<li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">-->
+            <!--<a ng-href="{{item.link}}">{{item.title}}</a>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
   </div>
 </div>
