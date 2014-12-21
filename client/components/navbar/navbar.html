@@ -4,20 +4,23 @@
       <a class="navbar-brand" href="#">Arsia</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form ng-show="loggedIn===false" class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" ng-model="user.name" class="form-control" placeholder="username" ng-show="signUpSelected">
+          <input type="text" ng-model="user.email" class="form-control" placeholder={{placeholderMsg.email}}>
+          <input type="password" ng-model="user.password" class="form-control" placeholder="password">
+        </div>
+        <button class="btn btn-default" ng-show="!signUpSelected" ng-click="login()">Login</button>
+        <a href="" ng-show="!signUpSelected" ng-click="signUpSelected=true"><span class="small">Sign up</span></a>
+        <button class="btn btn-success" ng-click="signUp()" ng-show="signUpSelected">Sign up</button>
+        <button class="btn btn-danger" ng-click="signUpSelected=false" ng-show="signUpSelected">Cancel</button>
+      </form>
+
       <ul class="nav navbar-nav">
         <li ng-show="loggedIn===true"><a href="#">Hi {{user.email}}</a></li>
       </ul>
-      <form ng-show="loggedIn===false" class="navbar-form navbar-left" role="search" ng-submit="login()">
-        <div class="form-group">
-          <!--<input type="text" ng-model="user.name" class="form-control" placeholder="username">-->
-          <input type="text" ng-model="user.email" class="form-control" placeholder="email">
-          <input type="password" ng-model="user.password" class="form-control" placeholder="password">
-        </div>
-        <button type="submit" class="btn btn-default">Login</button>
-        <button ngtype="submit" class="btn btn-success" ng-click="signUp()">Sign up</button>
-      </form>
+
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings <span class="caret"></span></a>
@@ -31,22 +34,5 @@
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
-
-    <!--<div class="navbar-header">-->
-      <!--<button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">-->
-        <!--<span class="sr-only">Toggle navigation</span>-->
-        <!--<span class="icon-bar"></span>-->
-        <!--<span class="icon-bar"></span>-->
-        <!--<span class="icon-bar"></span>-->
-      <!--</button>-->
-      <!--<a href="/" class="navbar-brand">arsia</a>-->
-    <!--</div>-->
-    <!--<div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">-->
-      <!--<ul class="nav navbar-nav">-->
-        <!--<li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">-->
-            <!--<a ng-href="{{item.link}}">{{item.title}}</a>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</div>-->
   </div>
 </div>

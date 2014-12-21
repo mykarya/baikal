@@ -2,6 +2,7 @@
 
 angular.module('arsiaApp')
   .controller('NavbarCtrl', function ($scope, $location) {
+    // VS! Yo stuff. To be removed
     $scope.menu = [{
       'title': 'Home',
       'link': '/'

@@ -1,30 +1,21 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header ng-show="loggedIn===true" class="hero-unit" id="banner">
+<header ng-show="loggedIn===false" class="hero-unit" id="banner">
   <div class="container">
     <h1>Get Started!</h1>
     <p class="lead">kick-start your profile</p>
     <img src="assets/images/yeoman.png" alt="model X">
   </div>
 </header>
-<div ng-show="loggedIn===false" class="container">
+<div ng-show="loggedIn===true" class="container">
   <div class="row">
     <div class="col-lg-4">
       <div class="input-group">
         <input type="text" class="form-control">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Enter stock</button>
+        <button class="btn btn-default" type="button">Search</button>
       </span>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div>
-      <ul class="nav nav-pills">
-        <li role="presentation" class="active"><a href="#">Home</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
-      </ul>
     </div>
   </div>
 </div>
