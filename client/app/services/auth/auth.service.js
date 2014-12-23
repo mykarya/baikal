@@ -27,8 +27,9 @@ angular.module('arsiaApp')
           });
       },
 
-      logoutUser: function(){
-        return true;
+      // TODO. clear user session/cookie in back-end once Passportjs implemented in backend.
+      logoutUser: function(email,callback){
+        callback(true);
       }
     }
   }]);

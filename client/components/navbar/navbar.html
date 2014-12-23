@@ -7,6 +7,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <form ng-show="loggedIn===false" class="navbar-form navbar-left" role="search">
         <div class="form-group">
+          <!--signUpSelected:Used below to toggle between displaying login button or signUp button.-->
           <input type="text" ng-model="user.name" class="form-control" placeholder="username" ng-show="signUpSelected">
           <input type="text" ng-model="user.email" class="form-control" placeholder={{placeholderMsg.email}}>
           <input type="password" ng-model="user.password" class="form-control" placeholder="password">
@@ -29,7 +30,7 @@
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
-            <li><a href="#" ng-click='logout()'>Logout</a></li>
+            <li><a href="#" ng-click='signUpSelected=false;logout()'>Logout</a></li>
           </ul>
         </li>
       </ul>

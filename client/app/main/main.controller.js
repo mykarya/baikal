@@ -12,7 +12,6 @@ angular.module('arsiaApp')
       email:"email"
     }
 
-    $scope.signUpSelected=false; //Used in ng-show to toggle between displaying login button or signUp button.
     $scope.loggedIn=false;
 
     $scope.login = function(){
@@ -39,21 +38,12 @@ angular.module('arsiaApp')
       });
     };
 
-
     $scope.logout = function(){
-      if(auth.logoutUser()) {
-        $scope.loggedIn=false;
-        $scope.user={};
-      }
+      auth.logoutUser($scope.user.email, function(loggedOut){
+        if(loggedOut){
+          $scope.loggedIn=false;
+          $scope.user={};
+        }
+      });
     };
-
-
-
-    // Yo stuff
-    $scope.awesomeThings = [];
-
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
-
   }]);
