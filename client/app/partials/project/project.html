@@ -1,0 +1,50 @@
+<div class="row">
+  <button type="button" class="btn btn-default">
+    <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</div>
+<div class="row">
+  <div class="col-md-2 col-md-offset-1">
+    <input type="text" class="form-control" ng-mode="project.name" placeholder="Project Name"/>
+  </div>
+  <!--Project Start Date-->
+  <div class="col-md-2">
+    <p class="input-group">
+      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.start_date" is-open="start_date_opened"
+             ng-required="true" close-text="Close" placeholder="start date"/>
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="start_date_open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
+  </div>
+  <!--Project End Date-->
+  <div class="col-md-2">
+    <p class="input-group">
+     <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="project.end_date" is-open="end_date_opened"
+             ng-required="true" close-text="Close" placeholder="end date"/>
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="end_date_open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
+  </div>
+  <!--No. of cycles-->
+  <div class="col-md-1">
+    <input type="text" class="form-control" ng-model="project.cycles" placeholder="Cycles"/>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-7 col-md-offset-1">
+    <ul class="list-inline" ng-repeat="cycle in temp_cycles">{{cycle.idx}}
+      <li>
+        <!--<progress><bar ng-repeat="bar in stacked track by $index" value="bar.value" type="{{bar.type}}"><span ng-hide="bar.value < 5">{{bar.value}}%</span></bar></progress>-->
+        <div><progressbar class="progress-striped" value="22" type="warning">22%</progressbar></div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4"><progressbar value="55"></progressbar></div>
+  <div class="col-sm-4"><progressbar class="progress-striped" value="22" type="warning">22%</progressbar></div>
+  <div class="col-sm-4"><progressbar class="progress-striped active" max="200" value="166" type="danger"><i>166 / 200</i></progressbar></div>
+</div>
+

@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('arsiaApp')
-  .controller('MainCtrl',['$scope','$http', 'auth', function ($scope, $http, auth) {
+  .controller('MainCtrl',['$scope','$http', '$modal', 'auth', function ($scope, $http, $modal, auth) {
     $scope.user={
-      name:"",
-      password:"",
-      email:""
+      name:"varun",
+      password:"123",
+      email:"v@run"
     };
 
     $scope.placeholderMsg = {
@@ -46,4 +46,30 @@ angular.module('arsiaApp')
         }
       });
     };
+
+    //VS! support to login through Modal window. Presently, not being used.
+    $scope.open = function () {
+      $modal.open({
+        templateUrl: 'app/main/login_modal.html',
+        backdrop: true,
+        windowClass: 'modal',
+        controller: function ($scope, $modalInstance, $log, user) {
+          $scope.user = user;
+          $scope.submit = function () {
+            $log.log('Submiting user info.');
+            $log.log(user);
+            $modalInstance.dismiss('cancel');
+          }
+          $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+          };
+        },
+        resolve: {
+          user: function () {
+            return $scope.user;
+          }
+        }
+      });
+    };
+
   }]);
