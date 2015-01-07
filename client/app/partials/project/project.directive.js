@@ -14,7 +14,18 @@ angular.module('arsiaApp')
           cycles:""
         };
 
-        // All stuff needed for Data Picker
+        $scope.projectCycles = [];
+
+        // TODO create a new Project
+        $scope.createNewProject = function() {
+          $scope.projectCycles = [];
+          for (var i = 0; i < $scope.project.cycles; i++) {
+            var val = i+1;
+            $scope.projectCycles[i] = {'idx':val};
+          }
+        }
+
+        // All stuff needed for Data Picker---------------------
         $scope.start_date_open = function($event) {
           $event.preventDefault();
           $event.stopPropagation();
@@ -33,7 +44,7 @@ angular.module('arsiaApp')
         $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
         $scope.format = $scope.formats[3];
 
-        //------------------------------------------
+        //--------------------------------------------------------
 
         // Stuff for Progress bar
         $scope.stacked = [{'value':25,'type':'success'},{'value':25,'type':'warning'}];

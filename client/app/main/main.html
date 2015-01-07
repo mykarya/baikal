@@ -8,7 +8,16 @@
   </div>
 </header>
 <div ng-show="loggedIn===true" class="container">
-  <project></project>
+  <!--<project></project>-->
+  <div class="row">
+    <tabset>
+      <tab heading="Profile"><profile></profile></tab>
+      <tab heading="Projects"><project></project></tab>
+      <tab heading="Achievements">Achievements tab</tab>
+      <tab heading="Endorsements">Endorsements</tab>
+      <tab heading="Timesheets">Timesheets</tab>
+    </tabset>
+  </div>
 </div>
 
   <!-- Yo stuff -->
